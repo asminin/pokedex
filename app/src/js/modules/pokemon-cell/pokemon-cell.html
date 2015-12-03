@@ -1,0 +1,13 @@
+<div class="pokemon-cell-title">
+	<span ng-bind="'#'+pokemon.num"></span>
+	<span ng-bind="pokemon.name"></span>
+</div>
+<div class="pokemon-cell-img">
+	<img class="pokemon-cell-pic" ng-src="{{pokemon.img}}" alt="pokemon.name" />
+</div>
+<div class="pokemon-cell-types">
+	<button class="pokemon-cell-types-btn disabled {{type.name}}"
+			ng-repeat="type in pokemon.types">
+			<span ng-bind="type.name"></span>
+	</button>
+</div>

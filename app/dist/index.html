@@ -1,0 +1,20 @@
+<html ng-app="app">
+<head>
+    <title>Pokédex</title>
+    <link href="css/style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+    <div class="header">
+        <div class="wrapper">
+            <div class="logo" ui-sref="index">
+                <div class="logo-img"></div>
+                <div class="logo-text">Pokédex</div>
+            </div>
+        </div>
+    </div>
+    <div class="wrapper main">
+        <ui-view></ui-view>
+    </div>
+      <script src="js/script.js"></script>
+</body>
+</html>

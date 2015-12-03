@@ -1,0 +1,21 @@
+<div class="index-page">
+    <div class="index-page-title">Pokédex</div>
+    <div class="pokemon-list">
+        <pokemon-cell
+            pokemon="pokemon"
+            class="cell"
+            ui-sref="pokemon.id({id: pokemon.id})"
+            ng-repeat="pokemon in pokemons track by $index">
+        </pokemon-cell>
+        <div class="preloader" ng-show="preloader">
+            <div id="escapingBallG">
+            	<div id="escapingBall_1" class="escapingBallG"></div>
+            </div>
+        </div>
+    </div>
+    <div class="index-page-footer" ng-if="!infScroll">
+        <button class="load-more-btn footer-btn" ng-click="loadMore()">
+            <span>load more</span>
+        </button>
+    </div>
+</div>

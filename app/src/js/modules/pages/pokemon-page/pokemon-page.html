@@ -1,0 +1,113 @@
+<div class="pokemon-page" ng-show="!preloader">
+    <nav class="pokemon-page-navi">
+        <button class="pokemon-page-navi-btn prev" ng-class="{'no-poke' : !pokePrev}" ui-sref="pokemon.id({id: pokePrev.id})">
+            <span ng-bind="'#'+pokePrev.num"></span>
+            <span ng-bind="pokePrev.name"></span>
+        </button>
+        <button class="pokemon-page-navi-btn next" ng-class="{'no-poke' : !pokeNext}" ui-sref="pokemon.id({id: pokeNext.id})">
+            <span ng-bind="pokeNext.name"></span>
+            <span ng-bind="'#'+pokeNext.num"></span>
+        </button>
+    </nav>
+    <article>
+        <header class="pokemon-page-title">
+            <span ng-bind="'#'+pokemon.num"></span>
+        	<span ng-bind="pokemon.name"></span>
+        </header>
+        <section class="pokemon-page-info">
+            <div>
+                <pokemon-cell pokemon="pokemon"></pokemon-cell>
+                <p class="pokemon-page-info-description" ng-bind="pokemon.description"></p>
+            </div>
+            <div>
+                <div class="pokemon-page-params">
+                    <ul>
+                        <li class="pokemon-page-params-item" ng-if="pokemon.params.height">
+                            <span class="params-title">Height</span>
+                            <span class="params-value" ng-bind="pokemon.params.height"></span>
+                        </li>
+                        <li class="pokemon-page-params-item" ng-if="pokemon.params.category">
+                            <span class="params-title">Caterory</span>
+                            <span class="params-value" ng-bind="pokemon.params.category"></span>
+                        </li>
+                        <li class="pokemon-page-params-item" ng-if="pokemon.params.weight">
+                            <span class="params-title">Weight</span>
+                            <span class="params-value" ng-bind="pokemon.params.weight"></span>
+                        </li>
+                        <li class="pokemon-page-params-item" ng-if="pokemon.params.abilities">
+                            <span class="params-title">Abilities</span>
+                            <span class="params-value" ng-bind="pokemon.params.abilities"></span>
+                        </li>
+                        <li class="pokemon-page-params-item" ng-if="pokemon.params.gender">
+                            <span class="params-title">Gender</span>
+                            <span class="params-value" ng-bind="pokemon.params.gender"></span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="pokemon-page-stats">
+                    <div class="pokemon-page-stats-title">Base Stats</div>
+                    <div class="pokemon-page-stats-items">
+                        <ul>
+                            <li class="pokemon-page-stats-item">
+                                <div class="stats-column">
+                                    <div class="stats-value" style="height: {{100 - pokemon.stats.hp}}%"></div>
+                                </div>
+                                <span class="stats-title">HP</span>
+                            </li>
+                            <li class="pokemon-page-stats-item">
+                                <div class="stats-column">
+                                    <div class="stats-value" style="height: {{100 - pokemon.stats.attack}}%"></div>
+                                </div>
+                                <span class="stats-title">Attack</span>
+                            </li>
+                            <li class="pokemon-page-stats-item">
+                                <div class="stats-column">
+                                    <div class="stats-value" style="height: {{100 - pokemon.stats.defense}}%"></div>
+                                </div>
+                                <span class="stats-title">Defense</span>
+                            </li>
+                            <li class="pokemon-page-stats-item">
+                                <div class="stats-column">
+                                    <div class="stats-value" style="height: {{100 - pokemon.stats.specialAttack}}%"></div>
+                                </div>
+                                <span class="stats-title">Special Attack</span>
+                            </li>
+                            <li class="pokemon-page-stats-item">
+                                <div class="stats-column">
+                                    <div class="stats-value" style="height: {{100 - pokemon.stats.specialDefense}}%"></div>
+                                </div>
+                                <span class="stats-title">Special Defense</span>
+                            </li>
+                            <li class="pokemon-page-stats-item">
+                                <div class="stats-column">
+                                    <div class="stats-value" style="height: {{100 - pokemon.stats.speed}}%"></div>
+                                </div>
+                                <span class="stats-title">Speed</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="pokemon-page-movies">
+            <div class="pokemon-page-movies-title">Moves</div>
+            <div class="pokemon-page-movies-items">
+                <ul>
+                    <li class="movie-item" ng-repeat="move in pokemon.moves">
+                        <span ng-bind="move.name"></span>
+                    </li>
+                </ul>
+            </div>
+        </section>
+    </article>
+    <div class="pokemon-page-footer">
+        <button class="explore-more-btn footer-btn" ui-sref="index">
+            <span>EXPLORE MORE POKÉMON</span>
+        </button>
+    </div>
+</div>
+<div class="preloader" ng-show="preloader">
+    <div id="escapingBallG">
+        <div id="escapingBall_1" class="escapingBallG"></div>
+    </div>
+</div>
